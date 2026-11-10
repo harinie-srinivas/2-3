@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+    background: lightblue;
+    font-family: Arial;
+}
+
+input, button {
+    padding: 10px;
+    margin: 10px;
+}
+
+table {
+    margin: auto;
+    background: white;
+}
