@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>student management system</title>
+    </head>
+    <body>
+        <h1>Welcome to the Student Management System</h1>
+        <input type="text" id="N" placeholder="Enter student name">       
+        <input type="text" id="sID" placeholder="Enter student ID">
+        <input type="text" id="dep" placeholder="Enter student department">
+<button onclick="addStudent()">Add Student</button>
+        <h2>Student List</h2>
+        <ul id="studentList"></ul>
+
+        <script>
+            const students = [];
+
+            function addStudent() {
+                const name = document.getElementById('N').value;
+                const studentID = document.getElementById('sID').value;
+                const department = document.getElementById('dep').value;
+
+                if (name && studentID && department) {
+                    const student = { name, studentID, department };
+                    students.push(student);
+                    displayStudents();
+                    clearInputs();
+                } else {
+                    alert('Please fill in all fields.');
+                }
+            }
+
+            function displayStudents() {
+                const studentList = document.getElementById('studentList');
+                studentList.innerHTML = '';
+                students.forEach((student, index) => {
+                    const li = document.createElement('li');
+                    li.textContent = `Name: ${student.name}, ID: ${student.studentID}, Department: ${student.department}`;
+                    studentList.appendChild(li);
+                });
+            }
+
+            function clearInputs() {
+                document.getElementById('N').value = '';
+                document.getElementById('sID').value = '';
+                document.getElementById('dep').value = '';
+            }
+        </script>
+    </body>
+</html>
